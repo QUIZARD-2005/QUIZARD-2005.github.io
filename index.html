@@ -20,20 +20,21 @@
 
         /* Style for the boxes */
         .box {
-            width: 200px;
-            height: 150px;
+            width: auto; /* Reduce the width */
+            max-width: 290px;
+            height: 80px; /* Reduce the height */
             background-color: #0073e6;
             color: #fff;
             border: 2px solid #004b8e;
             border-radius: 10px;
-            margin: 20px;
-            display: inline-block;
-            vertical-align: top;
+            margin: 20px auto; /* Center the boxes horizontally */
             text-align: center;
-            line-height: 150px;
             font-size: 18px;
             text-transform: uppercase;
             text-decoration: none;
+            padding-top: 10px; /* Reduce the top padding */
+            padding-bottom: 10px;
+            display: block; /* Make the boxes display vertically */
         }
 
         /* Adjust box colors and text as needed */
@@ -51,6 +52,16 @@
             background-color: #33cc33;
             border: 2px solid #009900;
         }
+
+        /* Style for SVG icons */
+        .icon {
+            width: 40px; /* Reduce the width of the icons */
+            height: 40px; /* Reduce the height of the icons */
+            fill: #fff; /* Icon color */
+            margin-bottom: 5px; /* Reduce the bottom margin */
+            display: block;
+            margin: 0 auto; /* Center the icons horizontally */
+        }
     </style>
 </head>
 <body>
@@ -58,15 +69,27 @@
         WELCOME TO OUR SITE!
     </div>
     <div class="box">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <!-- Add your SVG path data here -->
+        </svg>
         MCQ FOR JEE-IIT
     </div>
     <div class="box">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <!-- Add your SVG path data here -->
+        </svg>
         MCQ FOR NEET - AIIMS
     </div>
     <div class="box">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <!-- Add your SVG path data here -->
+        </svg>
         MCQ FOR MHTCET
     </div>
     <div class="box">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <!-- Add your SVG path data here -->
+        </svg>
         MCQ FOR BOARDS
     </div>
 </body>
