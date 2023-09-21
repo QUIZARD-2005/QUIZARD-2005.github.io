@@ -102,22 +102,22 @@
     <div class="fancy-text">
         <span style="font-weight: bold; color: #ff9900">WELCOME</span><span style="color: #ffffff;"> TO </span><span style="color: #15fe00; font-weight: bold;">OUR SITE!</span>
     </div>
-    <div class="box" onclick="boxClicked('JEE-IIT')">
+    <div class="box" onclick="boxClicked('https://quizwalah.blogspot.com')">
         <img src="https://cdn-icons-png.flaticon.com/512/3048/3048736.png" class="icon icon1" alt="" title="" class="img-small">
         MCQ FOR JEE-IIT
     </div>
 
-    <div class="box" onclick="boxClicked('NEET-AIIMS')">
+    <div class="box" onclick="alert('COMING SOON ')">
         <img src="https://cdn-icons-png.flaticon.com/512/2749/2749553.png" class="icon icon2" alt="" title="" class="img-small">
         MCQ FOR NEET - AIIMS
     </div>
 
-    <div class="box" onclick="boxClicked('MHTCET')">
+    <div class="box" onclick="alert('COMING SOON ')">
         <img src="https://cdn-icons-png.flaticon.com/512/9043/9043010.png" class="icon icon3" alt="" title="" class="img-small">
         MCQ FOR MHTCET
     </div>
     
-    <div class="box" onclick="boxClicked('BOARDS')">
+    <div class="box" onclick="alert('COMING SOON ')">
         <img src="https://cdn-icons-png.flaticon.com/512/4344/4344952.png" class="icon icon4" alt="" title="" class="img-small">
         MCQ FOR BOARDS
     </div>
@@ -125,7 +125,10 @@
     <script>
         // JavaScript function to handle box click events
         function boxClicked(boxName) {
-            alert('You clicked on ' + boxName);
+            // Navigate to the Location.reload article by replacing this page
+window.open(boxName,"_blank");
+
+
         }
     </script>
 </body>
