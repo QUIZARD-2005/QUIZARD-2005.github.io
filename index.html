@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Our Site</title>
     <style>
-        /* Center the text */
+        /* Set gradient background */
         body {
+            background: linear-gradient(135deg, #ff9900,#ffffffed ,#5398dd , #33cc33);
             text-align: center;
             font-family: Arial, sans-serif;
         }
@@ -14,8 +15,10 @@
         /* Style for the fancy text */
         .fancy-text {
             font-size: 36px;
-            color: #0073e6;
+            color: #fff;
             margin-top: 100px; /* Adjust as needed */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a text shadow */
+            letter-spacing: 2px; /* Adjust letter spacing */
         }
 
         /* Style for the boxes */
@@ -35,6 +38,18 @@
             padding-top: 10px; /* Reduce the top padding */
             padding-bottom: 10px;
             display: block; /* Make the boxes display vertically */
+            transition: transform 0.2s, box-shadow 0.2s; /* Add transition effects */
+            background-image: url('https://example.com/your-background-image.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            position: relative; /* Position for absolute SVG icons */
+            cursor: pointer; /* Add cursor pointer */
+        }
+
+        /* Add a 3D effect on hover */
+        .box:hover {
+            transform: scale(1.05); /* Enlarge the box */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
         }
 
         /* Adjust box colors and text as needed */
@@ -58,39 +73,60 @@
             width: 40px; /* Reduce the width of the icons */
             height: 40px; /* Reduce the height of the icons */
             fill: #fff; /* Icon color */
-            margin-bottom: 5px; /* Reduce the bottom margin */
-            display: block;
-            margin: 0 auto; /* Center the icons horizontally */
+            position: absolute; /* Position the icons within the box */
+        }
+
+        /* Positioning for specific icons */
+        .icon1 {
+            top: 10px; /* Adjust top position */
+            left: 10px; /* Adjust left position */
+        }
+
+        .icon2 {
+            top: 10px; /* Adjust top position */
+            right: 10px; /* Adjust right position */
+        }
+
+        .icon3 {
+            bottom: 10px; /* Adjust bottom position */
+            left: 10px; /* Adjust left position */
+        }
+
+        .icon4 {
+            bottom: 10px; /* Adjust bottom position */
+            right: 10px; /* Adjust right position */
         }
     </style>
 </head>
 <body>
     <div class="fancy-text">
-        WELCOME TO OUR SITE!
+        <span style="font-weight: bold; color: #ff9900">WELCOME</span><span style="color: #ffffff;"> TO </span><span style="color: #15fe00; font-weight: bold;">OUR SITE!</span>
     </div>
-    <div class="box">
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <!-- Add your SVG path data here -->
-        </svg>
+    <div class="box" onclick="boxClicked('JEE-IIT')">
+        <img src="https://cdn-icons-png.flaticon.com/512/3048/3048736.png" class="icon icon1" alt="" title="" class="img-small">
         MCQ FOR JEE-IIT
     </div>
-    <div class="box">
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <!-- Add your SVG path data here -->
-        </svg>
+
+    <div class="box" onclick="boxClicked('NEET-AIIMS')">
+        <img src="https://cdn-icons-png.flaticon.com/512/2749/2749553.png" class="icon icon2" alt="" title="" class="img-small">
         MCQ FOR NEET - AIIMS
     </div>
-    <div class="box">
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <!-- Add your SVG path data here -->
-        </svg>
+
+    <div class="box" onclick="boxClicked('MHTCET')">
+        <img src="https://cdn-icons-png.flaticon.com/512/9043/9043010.png" class="icon icon3" alt="" title="" class="img-small">
         MCQ FOR MHTCET
     </div>
-    <div class="box">
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <!-- Add your SVG path data here -->
-        </svg>
+    
+    <div class="box" onclick="boxClicked('BOARDS')">
+        <img src="https://cdn-icons-png.flaticon.com/512/4344/4344952.png" class="icon icon4" alt="" title="" class="img-small">
         MCQ FOR BOARDS
     </div>
+
+    <script>
+        // JavaScript function to handle box click events
+        function boxClicked(boxName) {
+            alert('You clicked on ' + boxName);
+        }
+    </script>
 </body>
 </html>
