@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Our Site</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Welcome to QUIZARD</title>
     <style>
-        /* Set gradient background */
-        body {
+ body {
             background: linear-gradient(135deg, #ff9900,#ffffffed ,#5398dd , #33cc33);
             text-align: center;
             font-family: Arial, sans-serif;
@@ -14,8 +15,6 @@
 
         /* Style for the fancy text */
         .fancy-text {
-            font-size: 36px;
-            color: #fff;
             margin-top: 100px; /* Adjust as needed */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a text shadow */
             letter-spacing: 2px; /* Adjust letter spacing */
@@ -39,7 +38,6 @@
             padding-bottom: 10px;
             display: block; /* Make the boxes display vertically */
             transition: transform 0.2s, box-shadow 0.2s; /* Add transition effects */
-           
             position: relative; /* Position for absolute SVG icons */
             cursor: pointer; /* Add cursor pointer */
         }
@@ -98,8 +96,17 @@
 </head>
 <body>
     <div class="fancy-text">
-        <span style="font-weight: bold; color: #ff9900">WELCOME</span><span style="color: #ffffff;"> TO </span><span style="color: #15fe00; font-weight: bold;">OUR SITE!</span>
-    </div>
+        <span style="font-weight: bold; color: #ff9900 ; font-size: 36px;">Welcome</span>
+        <span style="color: #ffffff; font-size: 36px;"> TO </span>
+        <span style="color: #15fe00; font-weight: bold; font-size: 36px;">QUIZARD !</span>
+        <BR><BR>
+            <div class="typing-container">
+                <!-- Use a span with class for the typed text -->
+               <span style="font-size:large;"> <span id="typed-text" class="typing-text"></span><span class="typing-cursor"></span></span>
+                
+            </div>
+        </div>
+
     <div class="box" onclick="boxClicked('https://quizwalah.blogspot.com')">
         <img src="https://cdn-icons-png.flaticon.com/512/3048/3048736.png" class="icon icon1" alt="" title="" class="img-small">
         MCQ FOR JEE-IIT
@@ -120,14 +127,218 @@
         MCQ FOR BOARDS
     </div>
 
+
+    </body>
+
+    <footer>
+        <div class="footer-content">
+            <h3>QUIZARD</h3>
+           
+            <p>QUIZARD IS A WEBSITE WHERE YOU CAN BOOST YOUR PREPERATIONS .
+           WEBSITE IS FREE FOR EVERY USERS. WEBSITE IS SIMPLE , INTERACTIVE , USER FRENDLY. FOR REPORTING BUGS OR ERRORS CHECK CONTACT LINK BELOW </p>
+            
+            <br> <P>FIND US ON </P>
+            <ul class="socials">
+                <!-- <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="#"><i class="fa fa-youtube"></i></a></li> -->
+                <li><a href="https://t.me/ITS_NOT_ROMEO"><i class="fa fa-telegram"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/devansh-bhanushali-35336628b"><i class="fa fa-linkedin-square"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>copyright &copy; <a href="#">QUIZARD</a>  </p>
+                    <div class="footer-menu">
+                      <ul class="f-menu">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="https://t.me/ITS_NOT_ROMEO">Contact</a></li>
+                        
+                      </ul>
+                    </div>
+        </div>
+
+    </footer>
+
+
     <script>
         // JavaScript function to handle box click events
         function boxClicked(boxName) {
-            // Navigate to the Location.reload article by replacing this page
-window.open(boxName,"_blank");
-
-
+            window.open(boxName,"_blank");
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const sentences = [
+                "CHECK YOUR PREPARATIONS OF JEE ",
+                'CHECK YOUR PREPARATIONS OF NEET ',
+                "CHECK YOUR PREPARATIONS OF MHTCET",
+                " CHECK YOUR PREPARATIONS OF BOARDS",
+            ];
+
+            const typedTextSpan = document.getElementById("typed-text");
+            let sentenceIndex = 0;
+            let charIndex = 0;
+            let isErasing = false;
+
+            function type() {
+                if (!isErasing && charIndex < sentences[sentenceIndex].length) {
+                    // Wrap each character in a span element
+                    typedTextSpan.innerHTML += `<span style="font-weight: bold; color: #1593db;">${sentences[sentenceIndex].charAt(charIndex)}</span>`;
+                    charIndex++;
+                    const typingDelay = Math.random() * 150 + 50; // Randomize typing speed (between 50ms and 200ms)
+                    setTimeout(type, typingDelay);
+                } else if (charIndex >= sentences[sentenceIndex].length) {
+                    // Full sentence typed, start erasing
+                    isErasing = true;
+                    setTimeout(erase, 1000); // Wait for 1 second before erasing (milliseconds)
+                }
+            }
+
+            function erase() {
+                if (isErasing && charIndex >= 0) {
+                    // Remove the last span element
+                    const spanElements = typedTextSpan.querySelectorAll("span");
+                    if (spanElements.length > 0) {
+                        spanElements[spanElements.length - 1].remove();
+                    }
+                    charIndex--;
+                    const erasingDelay = Math.random() * 50 + 20; // Randomize erasing speed (between 20ms and 70ms)
+                    setTimeout(erase, erasingDelay);
+                } else if (charIndex < 0) {
+                    // Erasing finished, move to the next sentence or loop back to the beginning
+                    isErasing = false;
+                    charIndex = 0;
+                    sentenceIndex = (sentenceIndex + 1) % sentences.length;
+                    setTimeout(type, 1000); // Wait for 1 second before typing the next sentence (milliseconds)
+                }
+            }
+
+            setTimeout(type, 1000); // Delay before starting typing animation (milliseconds)
+        });
     </script>
+
+
 </body>
 </html>
+
+
+<!-- FOOTER CSSS -->
+<style media="screen">
+footer{
+    bottom: 0;
+    left: 0;
+    right: 0;
+     /* filter: blur(5px); Apply the blur effect */
+    height: auto;
+    
+    padding-top: 40px;
+    color: #fff;
+    
+}
+.footer-content{
+    /* backdrop-filter: blur(5px); Apply the blur effect */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.footer-content h3{
+    font-size: 2.1rem;
+    font-weight: 500;
+    
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+.footer-content p{
+    
+    max-width: 50%;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 20px;
+    /* color: #cacdd2; */
+}
+.socials{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+.socials li{
+    margin: 0 10px;
+}
+.socials a{
+    text-decoration: none;
+    color: #fff;
+    border: 1.1px solid white;
+    padding: 5px;
+
+    border-radius: 50%;
+
+}
+.socials a i{
+    font-size: 1.1rem;
+    width: 20px;
+
+
+    transition: color .4s ease;
+
+}
+.socials a:hover i{
+    color: aqua;
+}
+
+.footer-bottom{
+    /* background: #00ffcc; */
+   color: #154fe1c9;
+    /* width: 100%; */
+    padding: 20px;
+    padding-bottom: 40px;
+    text-align: center;
+}
+.footer-bottom p{
+float: left;
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
+.footer-bottom p a{
+  color:#44bae8;
+  font-size: 16px;
+  text-decoration: none;
+}
+.footer-bottom span{
+    text-transform: uppercase;
+    opacity: .4;
+    font-weight: 200;
+}
+.footer-menu{
+    
+  float: right;
+
+}
+.footer-menu ul{
+  display: flex;
+}
+.footer-menu ul li{
+padding-right: 10px;
+display: block;
+}
+.footer-menu ul li a{
+  color: #cfd2d6;
+  text-decoration: none;
+}
+.footer-menu ul li a:hover{
+  color: #27bcda;
+}
+
+@media (max-width:500px) {
+.footer-menu ul{
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+}
+    </style>
